@@ -22,7 +22,7 @@
 				<div class="card-body d-flex justify-content-center">
 					@foreach ($kontaks as $kontak)
 					<p class="fw-bold fst-normal">
-						<i class="fas fa-{{code}}"></i>{{$kontak->jenis->jenis_kontak}} : {{$kontak->deskripsi}}
+						</i>{{$kontak->jenis->jenis_kontak}} : {{$kontak->deskripsi}}
 					</p>
 					@endforeach
 				</div>

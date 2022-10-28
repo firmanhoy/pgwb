@@ -24,7 +24,8 @@ Route::middleware('auth')->group(function(){
     Route::get('/admin', [AdminController::class, 'index']);
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::resource('/admin/dashboard', AdminDashboardController::class);
-    Route::get('admin/student/{id_siswa}/create',[AdminProjectController::class,'createproject'])->name('project.created');
+    Route::get('admin/project/{id_siswa}/create',[AdminProjectController::class,'createproject'])->name('project.created');
+    Route::get('admin/contact/{id_siswa}/create',[AdminContactController::class,'createcontact'])->name('contact.created');
     Route::resource('/admin/student', AdminStudentController::class);
     Route::get('admin/student/{id_siswa}/hapus',[AdminStudentController::class,'hapus'])->name('student.hapus');
     Route::get('admin/project/{id_siswa}/hapus',[AdminProjectController::class,'hapus'])->name('project.hapus');
@@ -80,7 +81,7 @@ Route::get('/contact', function () {
         "title" => "Contact"
     ]);
 });
-
+Route::get('/test', [AdminContactController::class, 'show']);
 // Route::get('/admin/student', function () {
 //     return view('admin.master-student');
 // });

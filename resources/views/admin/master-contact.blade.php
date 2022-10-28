@@ -11,19 +11,18 @@
 			    </div>
 			    <div class="card-body">
 			    	<div class="row">
-			    		@foreach ($data as $item)
-			    			<div class="col-lg-3">
-			    				@if ($item->jk == 'Pria')
-									<a onclick="show({{$item->id}})" href="">
-			    						<img class="img-profile rounded-circle" src="{{ asset('template/img/undraw_profile.svg') }}" alt="">
-			    					</a>
-			    					@else
-			    					<a onclick="show({{$item->id}})" href="">
-			    						<img class="img-profile rounded-circle" src="{{ asset('template/img/undraw_profile_3.svg') }}" alt="">
-			    					</a>
-			    				@endif
-			    			</div>
-			    		@endforeach
+			    		<table>
+			    			<tbody>
+				    			@foreach ($data as $i => $item)
+							  		<td>{{$item->nama}}</td>
+							  		<td class="d-flex justify-content-center">
+							  			<a  onclick="show1({{$item->id}})" class="btn btn-info  mr-1 btn-sm"><i class="fas fa-folder-open"></i></a>
+							  			<a href="{{ route('project.created', $item->id) }}" class="btn btn-success  mr-1 btn-sm "><i class="fas fa-plus"></i></a>
+							  		</td>
+							    </tr>
+					    		@endforeach
+			    			</tbody>
+			    		</table>
 			    	</div>
 		    	</div>
 			</div>

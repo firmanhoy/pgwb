@@ -99,7 +99,7 @@ class AdminStudentController extends Controller
     {
         $data = Siswa::find($id);
         $kontaks = $data->kontak;
-        $projects = SIswa::find($id)->project()->get();
+        $projects = Siswa::find($id)->project()->get();
         return view('crud.student.show',compact('data','kontaks','projects'));
         // dd($kontak);
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Siswa;
+use App\Models\Kontak;
 
 class AdminContactController extends Controller
 {
@@ -31,6 +32,13 @@ class AdminContactController extends Controller
         ]);
     }
 
+        public function createcontact($id)
+    {
+        
+        return view('crud.contact.create');
+
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -48,11 +56,13 @@ class AdminContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {   
         $data = Siswa::find($id);
         $kontaks = $data->kontak;
-        return view('crud.show',compact('data','kontaks'));
+        // dd($kontaks);/
+        return view('crud.contact.show',compact('data','kontaks'));
+
     }
 
     /**
