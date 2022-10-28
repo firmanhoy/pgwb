@@ -53,7 +53,7 @@ Route::get('/logout', [LoginController::class, 'logouth'])->middleware('auth');
 //     ]);
 // });
 Route::get('/', function () {
-    return view('landing');
+    return view('profile');
 });
 Route::get('/denied', function () {
     return view('denied');

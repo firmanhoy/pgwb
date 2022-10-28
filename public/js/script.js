@@ -3,3 +3,9 @@ function show(id) {
         $('#project').html(data);
     });
 }
+function show(id) {
+    $.get('/admin/contact/' + id, function(data) {
+        $('#kontak').html(data);
+    });
+}
+

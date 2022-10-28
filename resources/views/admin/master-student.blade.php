@@ -38,7 +38,7 @@
 				      <td>{{$item->nama}}</td>
 				      <td>{{$item->jk}}</td>
 				      <td>{{$item->email}}</td>
-				 {{--      <td>{{$item->about}}</td> --}}b
+				 {{--      <td>{{$item->about}}</td> --}}
 				      <td class="d-flex justify-content-center">
 				      	<a href="{{ route('student.show', $item->id) }}" class="btn btn-info btn-circle mr-1 "><i class="bi bi-info-circle"></i></a>
 				      	<a href="{{ route('student.edit', $item->id) }}" class="btn btn-warning btn-circle mr-1 "><i class="bi bi-pencil-fill" aria-hidden="true"></i></a>

@@ -2,20 +2,42 @@
 @extends('admin.admin')
 @section('content-title','Master Contact')
 @section('content')
-
-	<h1>See you, World</h1>
-
-
-<div class="dropdown d-flex flex-row-reverse tombolAksi">
-	  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-	    Dropdown link
-	  </a>
-
-	  <ul class="dropdown-menu">
-	    <li><a class="dropdown-item" href="#">Action</a></li>
-	    <li><a class="dropdown-item" href="#">Another action</a></li>
-	    <li><a class="dropdown-item" href="#">Something else here</a></li>
-	  </ul>
-</div>
-
+	
+	<div class="row">
+		<div class="col-lg-4">
+			<div class="card shadow mb-4">
+			    <div class="card-header py-3">
+			        <h6 class="m-0 font-weight-bold text-primary text-center">Daftar Siswa</h6>
+			    </div>
+			    <div class="card-body">
+			    	<div class="row">
+			    		@foreach ($data as $item)
+			    			<div class="col-lg-3">
+			    				@if ($item->jk == 'Pria')
+									<a onclick="show({{$item->id}})" href="">
+			    						<img class="img-profile rounded-circle" src="{{ asset('template/img/undraw_profile.svg') }}" alt="">
+			    					</a>
+			    					@else
+			    					<a onclick="show({{$item->id}})" href="">
+			    						<img class="img-profile rounded-circle" src="{{ asset('template/img/undraw_profile_3.svg') }}" alt="">
+			    					</a>
+			    				@endif
+			    			</div>
+			    		@endforeach
+			    	</div>
+		    	</div>
+			</div>
+		</div>
+		<div class="col-lg-8">
+			<div class="card shadow mb-4">
+			    <div class="card-header py-3">
+			        <h6 class="m-0 font-weight-bold text-primary text-center">Daftar Siswa</h6>
+			    </div>
+			    <div id="kontak" class="card-body">
+			    		
+			    </div>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Siswa;
 
 class AdminContactController extends Controller
 {
@@ -13,7 +14,8 @@ class AdminContactController extends Controller
      */
     public function index()
     {
-        return view('admin.master-contact');
+        $data = Siswa::all();
+        return view('admin.master-contact', compact('data'));
     }
 
     /**
@@ -47,11 +49,10 @@ class AdminContactController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show()
-    {
-        return view('crud.show',[
-            'title' => 'Tampil Contact',
-            'contentTitle' => 'Halaman Tampilkan Contact'
-        ]);
+    {   
+        $data = Siswa::find($id);
+        $kontaks = $data->kontak;
+        return view('crud.show',compact('data','kontaks'));
     }
 
     /**
