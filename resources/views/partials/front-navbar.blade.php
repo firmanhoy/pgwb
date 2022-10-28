@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-secondary shadow-sm fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-warning shadow-sm fixed-top">
         <div class="container">
             <a class="navbar-brand active" href="/">Andrean Firmansyah</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

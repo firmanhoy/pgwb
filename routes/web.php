@@ -59,27 +59,27 @@ Route::get('/denied', function () {
     return view('denied');
 });
 
-// Route::get('/profile', function () {
-//     return view('profile',[
-//         "title" => "Profile"
-//     ]);
-// });
+Route::get('/profile', function () {
+    return view('profile',[
+        "title" => "Profile"
+    ]);
+});
 
-// Route::get('/about', function () {
-//     return view('about',[
-//         "title" => "About"]);
-// });
+Route::get('/about', function () {
+    return view('about',[
+        "title" => "About"]);
+});
 
-// Route::get('/projects', function () {
-//     return view('project',[
-//         "title" => "Project"
-//     ]);
-// });
-// Route::get('/contact', function () {
-//     return view('contact',[ 
-//         "title" => "Contact"
-//     ]);
-// });
+Route::get('/projects', function () {
+    return view('project',[
+        "title" => "Project"
+    ]);
+});
+Route::get('/contact', function () {
+    return view('contact',[ 
+        "title" => "Contact"
+    ]);
+});
 
 // Route::get('/admin/student', function () {
 //     return view('admin.master-student');
