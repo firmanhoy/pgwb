@@ -15,6 +15,6 @@ class Project extends Model
         return $this->belongsTo(Siswa::class, 'id');
     }
 
-    protected $table = 'Project';
+    protected $table = 'project';
 }
 
