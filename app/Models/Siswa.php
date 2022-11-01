@@ -17,7 +17,7 @@ class Siswa extends Model
         return $this->hasMany(Kontak::class, 'siswa_id', 'id');
     }
     public  function project(){
-        return $this->hasMany(Project::class);
+        return $this->hasMany('App\Models\Project', 'siswa_id');
     }
 
     protected $table = 'siswa';
