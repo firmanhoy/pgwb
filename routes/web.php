@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminStudentController;
 use App\Http\Controllers\AdminProjectController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\JKController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,17 +20,19 @@ use App\Http\Controllers\AdminController;
 
 
 Route::middleware('auth')->group(function(){
+    Route::get('/admin',[AdminDashboardController::class,'index']);
+    Route::resource('/admin/jenis', JKController::class);
     Route::resource('/admin/contact', AdminContactController::class);
     Route::resource('/admin/project', AdminProjectController::class);
-    Route::get('/admin', [AdminController::class, 'index']);
+    // Route::get('/admin', [AdminController::class, 'index']);
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-    Route::resource('/admin/dashboard', AdminDashboardController::class);
+    Route::resource('/dashboard', AdminDashboardController::class);
     Route::get('admin/project/{id_siswa}/create',[AdminProjectController::class,'createproject'])->name('project.created');
     Route::get('admin/contact/{id_siswa}/create',[AdminContactController::class,'createcontact'])->name('contact.created');
     Route::resource('/admin/student', AdminStudentController::class);
     Route::get('admin/student/{id_siswa}/hapus',[AdminStudentController::class,'hapus'])->name('student.hapus');
     Route::get('admin/project/{id_siswa}/hapus',[AdminProjectController::class,'hapus'])->name('project.hapus');
-
+    Route::get('admin/contact/{id_siswa}/hapus',[AdminContactController::class,'hapus'])->name('contact.hapus');
 });
 Route::middleware('guest')->group(function(){
     Route::get('/register', [LoginController::class, 'daftar'])->middleware('guest');

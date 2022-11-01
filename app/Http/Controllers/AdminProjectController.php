@@ -95,7 +95,6 @@ class AdminProjectController extends Controller
     {
 
         $data = Project::find($id);
-
         return view('crud.project.edit', compact('data'));
     }
 

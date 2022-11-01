@@ -34,7 +34,7 @@
 				  	@foreach ($data as $i => $item)
 				  	<tr>
 
-				      <th scope="row">{{$i++}}</th>
+				      <th scope="row">{{$i+1}}</th>
 				      <td>{{$item->nama}}</td>
 				      <td>{{$item->jk}}</td>
 				      <td>{{$item->email}}</td>

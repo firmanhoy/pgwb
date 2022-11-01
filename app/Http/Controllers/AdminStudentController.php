@@ -98,7 +98,7 @@ class AdminStudentController extends Controller
     public function show($id)
     {
         $data = Siswa::find($id);
-        $kontaks = $data->kontak;
+        $kontaks = $data->kontak->get();
         $projects = Siswa::find($id)->project()->get();
         return view('crud.student.show',compact('data','kontaks','projects'));
         // dd($kontak);

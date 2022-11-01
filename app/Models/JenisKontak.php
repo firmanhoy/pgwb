@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Kontak;
 
-class Jenis_kontak extends Model
+class JenisKontak extends Model
 {
     use HasFactory;
     protected $guarded =[

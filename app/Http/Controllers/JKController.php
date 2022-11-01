@@ -3,15 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Siswa;
-use App\Models\Project;
-use App\Models\Kontak;
 use App\Models\JenisKontak;
+use App\Models\Kontak;
 
-
-
-
-class AdminDashboardController extends Controller
+class JKController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,12 +15,11 @@ class AdminDashboardController extends Controller
      */
     public function index()
     {
-        $siswa = Siswa::all()->count();
-        $project = Project::all()->count();
-        $kontak = Kontak::all()->count();
-        $jenisKontak = JenisKontak::all()->count();
-        
-        return view('admin.dashboard', compact('siswa','project','kontak','jenisKontak'));
+        $data = Kontak::all();
+
+        $jenis = JenisKontak::all();
+        // dd($jenis);
+        return view('crud.jenis.index', compact('jenis','data'));
     }
 
     /**
@@ -35,7 +29,7 @@ class AdminDashboardController extends Controller
      */
     public function create()
     {
-        return view('crud.jenis');
+        return view('crud.jenis.create');
     }
 
     /**
@@ -46,7 +40,27 @@ class AdminDashboardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+         $messages = [
+
+            'required' => ':attribute Isien ta!',
+            'min' => ':attribute minimal ngisi :min lah',
+            'max' => ':attribute maksimal :max, sampean kakean',
+            'numeric' => ':attribute iku kan isine nomor, kok mbok isi hurup',
+            'mimes' => ':attribute iku tipene jpg, jpeg, png, gif, dan svg',
+            'size' => 'file yang diuplad maksimal :size wekmu kegeden'
+        ];
+        $this->validate($request,[
+        'jenis_kontak' => 'required',
+        'color' => 'required'
+        ],$messages);
+
+        JenisKontak::create([
+            'jenis_kontak' => $request->jenis_kontak,
+            'color' => $request->color
+        ]);
+
+        return redirect('/admin/jenis')->with('status','Berhasil Menambahkan Jenis KOntak');
     }
 
     /**

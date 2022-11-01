@@ -24,6 +24,7 @@ class CreateKontakTable extends Migration
                     ->onUpdate('cascade')
                     ->onDelete('cascade');
             $table->string('deskripsi');
+            $table->string('link');
             $table->timestamps();
         });
     }

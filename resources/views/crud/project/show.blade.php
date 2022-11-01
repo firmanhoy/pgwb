@@ -1,5 +1,6 @@
 @if ($data->isEmpty())
-	<h6 class="text-center">NO Project</h6>
+	<img src="{{ asset('image/empty.png') }}" class="rounded mx-auto d-block" alt="...">
+    <p class="ms-auto fs-4">Project Kosong :(</p>
 @endif
 	
 	@foreach ($data as $item)
