@@ -7,7 +7,7 @@
 		<div class="col-lg-4">
 			<div class="card shadow mb-4">
 				<div class="card-body text-center">
-					<img src="{{ asset('/assets/img/'.$data->foto) }}" alt="" class="rounded-circle img-thumbnail">
+					<img src="{{ asset('/storage/'.$data->foto) }}" alt="{{$data->nama}}" class="rounded-circle img-thumbnail">
 					<hr class="border border-primary border-3 opacity-75">
 					<h4>{{$data->nama}}</h4>
 					<h4><i class="fas fa-venus-mars"></i>{{$data->jk}}</h4>

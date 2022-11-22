@@ -46,6 +46,7 @@ class AdminStudentController extends Controller
      */
     public function store(Request $request)
     {
+        // ddd($request);
         $messages = [
 
             'required' => ':attribute Isien ta!',
@@ -66,17 +67,18 @@ class AdminStudentController extends Controller
 
         ],$messages);
 
-        // ambil informasi file yang diupload
-        $file = $request->file('foto');
+        // // ambil informasi file yang diupload
+        // $file = $request->file('foto');
 
-        // rename+ambil nama foto
-        $namaFile = time()."_".$file->getClientOriginalName();
+        // // rename+ambil nama foto
+        // $namaFile = time()."_".$file->getClientOriginalName();
 
-        // upload
-        $tujuanUpload = './assets/img';
-        $file->move($tujuanUpload, $namaFile);
+        // // upload
+        // $tujuanUpload = './assets/img';
+        // $file->move($tujuanUpload, $namaFile);
 
         //insert to DB
+        $foto =  $request->file('foto')->store('images');
         Siswa::create([
             'nama' => $request->nama,
             'nisn' => $request->nisn,
@@ -84,7 +86,7 @@ class AdminStudentController extends Controller
             'email' => $request->email,
             'alamat' => $request->alamat,
             'about' => $request->about,
-            'foto' => $namaFile
+            'foto' => $foto
             ]);
         return redirect('/admin/student')->with('status', 'Data Siswa Berhasil Dibuat!');
     }
@@ -152,16 +154,18 @@ class AdminStudentController extends Controller
 
             // Menghapus Foto
             $old = Siswa::find($id);
-            file::delete('.assets/img/'.$old->foto);
-            // ambil informasi file yang diupload
-            $file = $request->file('foto');
+            file::delete(asset('/storage'.$old->foto));
+            // // ambil informasi file yang diupload
+            // $file = $request->file('foto');
 
-            // rename+ambil nama foto
-            $namaFile = time()."_".$file->getClientOriginalName();
+            // // rename+ambil nama foto
+            // $namaFile = time()."_".$file->getClientOriginalName();
 
-            // upload
-            $tujuanUpload = './assets/img';
-            $file->move($tujuanUpload, $namaFile);
+            // // upload
+            // $tujuanUpload = './assets/img';
+            // $file->move($tujuanUpload, $namaFile);
+
+            $request->file('foto')->store('images');
 
             // Menyimpan ke database
             $siswa = Siswa::find($id);
@@ -203,6 +207,6 @@ class AdminStudentController extends Controller
     }
     public function hapus($id){
         $data = Siswa::find($id)->delete();
-        return redirect('admin/student')->with('status', 'Data Siswa Berhasil Dihapusr!');
+        return redirect('admin/student')->with('status', 'Data Siswa Berhasil Dihapus!');
     }
 }
